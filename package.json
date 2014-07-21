@@ -1,0 +1,23 @@
+{
+  "name": "unredo.js",
+  "version": "0.0.0",
+  "description": "Simple Undo Redo Library",
+  "main": "unredo.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kyosuke/unredo.git"
+  },
+  "keywords": [
+    "undo", "redo"
+  ],
+  "author": "Kyosuke",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "64fc3c6a3b2abcbb0c03680109156afbc2b63bfd",
+  "bugs": {
+    "url": "https://github.com/kyosuke/unredo/issues"
+  }
+}
