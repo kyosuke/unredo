@@ -1,4 +1,4 @@
 unredo
 ======
 
-JavaScript Undo Redo Library
+Simple Undo Redo Library
