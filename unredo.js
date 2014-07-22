@@ -8,15 +8,16 @@
     return obj === void 0;
   }
 
-  function command(exec, undo){
-    return {
-      execute: exec,
-      undo: undo
+  function command(execFunc, undoFunc){
+    var f = function(){
+      return execFunc.apply(execFunc, arguments);
     };
+    f.undo = undoFunc;
+    return f;
   }
 
   function execute(command) {
-    command.execute();
+    command();
     this.undoCommands.push(command);
     this.redoCommands = [];
   }
@@ -31,7 +32,7 @@
   function redo() {
     var command = this.redoCommands.pop();
     if (isUndefined(command)) return;
-    command.execute();
+    command();
     this.undoCommands.push(command);
   }
 
