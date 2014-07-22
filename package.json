@@ -11,7 +11,8 @@
     "url": "git://github.com/kyosuke/unredo.git"
   },
   "keywords": [
-    "undo", "redo"
+    "undo",
+    "redo"
   ],
   "author": "Kyosuke",
   "license": "MIT",
