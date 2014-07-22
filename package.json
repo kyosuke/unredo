@@ -19,5 +19,8 @@
   "gitHead": "64fc3c6a3b2abcbb0c03680109156afbc2b63bfd",
   "bugs": {
     "url": "https://github.com/kyosuke/unredo/issues"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1"
   }
 }
