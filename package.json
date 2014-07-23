@@ -4,7 +4,7 @@
   "description": "Simple Undo Redo Library",
   "main": "unredo.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec"
+    "test": "testem"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
-    "mocha": "~1.20.1"
+    "mocha": "~1.20.1",
+    "testem": "^0.6.17"
   }
 }

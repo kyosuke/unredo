@@ -1,0 +1,17 @@
+{
+  "framework": "mocha",
+  "src_files": [
+    "node_modules/expect.js/index.js",
+    "unredo.js",
+    "test/**/*.js"
+  ],
+  "launchers": {
+    "Node": {
+      "command": "./node_modules/.bin/mocha -R tap",
+      "protocol": "tap"
+    }
+  },
+  "launch_in_dev": [
+    "Node"
+  ]
+}

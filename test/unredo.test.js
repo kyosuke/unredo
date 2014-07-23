@@ -1,5 +1,7 @@
-var expect = require('expect.js');
-var unredo = require('../unredo.js').unredo;
+if (typeof require !== 'undefined'){
+  var expect = require('expect.js');
+  var unredo = require('../unredo.js').unredo;
+}
 
 describe('init', function() {
   it('unredo() is Object', function() {
