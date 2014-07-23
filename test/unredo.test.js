@@ -1,7 +1,7 @@
 var expect = require('expect.js');
 var unredo = require('../unredo.js').unredo;
 
-describe('main', function() {
+describe('init', function() {
   it('unredo() is Object', function() {
     var hist = unredo();
     expect(hist).to.be.a('object');
@@ -9,13 +9,8 @@ describe('main', function() {
 });
 
 describe('command', function() {
-  var noop, hist;
-
-  before(function(done) {
-    noop = function () {};
-    hist = unredo();
-    done();
-  });
+  var hist = unredo();
+  var noop = function () {};
 
   it('should create a command from unredo object', function () {
     var command = unredo.command(noop, noop);
@@ -31,13 +26,10 @@ describe('command', function() {
     expect(command.undo).to.be.a('function');
   });
 
-
 });
 
 
-describe('execute', function() {
-  var noop = function () {};
-  var noopCommand = unredo.command(noop, noop);
+describe('execute, undo, redo', function() {
   var value = 0;
   var plus1 = function() {
     value += 1;
@@ -45,7 +37,14 @@ describe('execute', function() {
   var minus1 = function() {
     value -= 1;
   };
+  var plus10 = function() {
+    value += 10;
+  };
+  var minus10 = function() {
+    value -= 10;
+  };
   var plus1Command = unredo.command(plus1, minus1);
+  var plus10Command = unredo.command(plus10, minus10);
   var hist;
 
   beforeEach(function(done) {
@@ -61,29 +60,10 @@ describe('execute', function() {
   });
 
   it('should have undoCommands', function() {
-    hist.execute(noopCommand);
+    hist.execute(plus1Command);
     expect(hist.undoCommands).to.have.length(1);
-    hist.execute(noopCommand);
+    hist.execute(plus1Command);
     expect(hist.undoCommands).to.have.length(2);
-  });
-
-});
-
-describe('undo', function() {
-  var value = 0;
-  var plus1 = function() {
-    value += 1;
-  };
-  var minus1 = function() {
-    value -= 1;
-  };
-  var plus1Command = unredo.command(plus1, minus1);
-  var hist;
-
-  beforeEach(function(done) {
-    hist = unredo();
-    value = 0;
-    done();
   });
 
   it('should undo command', function () {
@@ -94,6 +74,29 @@ describe('undo', function() {
     expect(value).to.be(0);
   });
 
+  it('should undo command 2', function () {
+    expect(value).to.be(0);
+    hist.execute(plus1Command);
+    expect(value).to.be(1);
+    hist.execute(plus10Command);
+    expect(value).to.be(11);
+    hist.undo();
+    expect(value).to.be(1);
+    hist.undo();
+    expect(value).to.be(0);
+  });
+
+  it('should redo command', function () {
+    expect(value).to.be(0);
+    hist.execute(plus1Command);
+    expect(value).to.be(1);
+    hist.undo();
+    expect(value).to.be(0);
+    hist.redo();
+    expect(value).to.be(1);
+  });
+
 });
+
 
 
