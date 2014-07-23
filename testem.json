@@ -12,6 +12,7 @@
     }
   },
   "launch_in_dev": [
-    "Node"
+    "Node",
+    "PhantomJS"
   ]
 }
