@@ -1,4 +1,4 @@
-(function () {
+(function() {
   "use strict";
 
   // Establish the root object, `window` in the browser, or `exports` on the server.
@@ -17,8 +17,8 @@
     };
   }
 
-  function command(execFunc, undoFunc){
-    var f = function(){
+  function command(execFunc, undoFunc) {
+    var f = function() {
       return execFunc.apply(execFunc, arguments);
     };
     f.undo = undoFunc;
