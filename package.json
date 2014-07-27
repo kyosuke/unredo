@@ -4,7 +4,7 @@
   "description": "Simple Undo Redo Library",
   "main": "unredo.js",
   "scripts": {
-    "test": "testem ci -l PhantomJS,Node",
+    "test": "testem ci -l PhantomJS,coveralls",
     "testem": "testem",
     "testem-ci": "testem ci",
     "mocha": "mocha -R spec",
