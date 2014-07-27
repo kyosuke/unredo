@@ -9,7 +9,7 @@
     "testem-ci": "testem ci",
     "mocha": "mocha -R spec",
     "coverage": "istanbul cover _mocha --report lcov -- -R tap",
-    "coveralls": "npm run coverage && coveralls < coverage/lcov.info"
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
