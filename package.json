@@ -6,8 +6,10 @@
   "scripts": {
     "test": "testem ci -l PhantomJS,Node",
     "testem": "testem",
-    "testemci": "testem ci",
-    "mocha": "mocha -R spec"
+    "testem-ci": "testem ci",
+    "mocha": "mocha -R spec",
+    "coverage": "istanbul cover _mocha --report lcov -- -R tap",
+    "coveralls": "npm run coverage && coveralls < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "url": "https://github.com/kyosuke/unredo/issues"
   },
   "devDependencies": {
+    "coveralls": "^2.11.1",
     "expect.js": "~0.3.1",
     "istanbul": "^0.3.0",
     "mocha": "~1.20.1",
