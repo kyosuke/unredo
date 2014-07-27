@@ -1,6 +1,6 @@
 {
-  "name": "unredo.js",
-  "version": "0.0.0",
+  "name": "unredo",
+  "version": "0.0.1",
   "description": "Simple Undo Redo Library",
   "main": "unredo.js",
   "scripts": {
