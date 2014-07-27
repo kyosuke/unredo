@@ -4,7 +4,10 @@
   "description": "Simple Undo Redo Library",
   "main": "unredo.js",
   "scripts": {
-    "test": "testem ci -l Node"
+    "test": "testem ci -l Node",
+    "testem": "testem",
+    "testemci": "testem ci",
+    "mocha": "mocha -R spec"
   },
   "repository": {
     "type": "git",
