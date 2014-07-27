@@ -88,6 +88,12 @@ describe('execute, undo, redo', function() {
     expect(value).to.be(0);
   });
 
+  it('should not undo when undoCommands is Empty', function () {
+    expect(value).to.be(0);
+    hist.undo();
+    expect(value).to.be(0);
+  });
+
   it('should redo command', function () {
     expect(value).to.be(0);
     hist.execute(plus1Command);
@@ -96,6 +102,12 @@ describe('execute, undo, redo', function() {
     expect(value).to.be(0);
     hist.redo();
     expect(value).to.be(1);
+  });
+
+  it('should not redo when redoCommands is Empty', function () {
+    expect(value).to.be(0);
+    hist.redo();
+    expect(value).to.be(0);
   });
 
 });
